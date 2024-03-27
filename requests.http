@@ -1,19 +1,62 @@
 ###
-POST http://localhost:7000/api/v1/login HTTP/1.1
+POST http://localhost:7000/api/v1/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "email": "holam@undo.com", 
-    "password": "passw31"
+    "email": "hola@mundo.com", 
+    "password": "password123"
 }
 
 ###
-POST http://localhost:7000/api/v1/register HTTP/1.1
+POST http://localhost:7000/api/v1/auth/register HTTP/1.1
 Content-Type: application/json
 
 { 
-    "username": "nombreUsuario", 
+    "email": "hola@mundo.com",
     "password": "password123", 
-    "email": "holam@undo.com",
     "repassword":  "password123" 
+}
+
+###
+GET http://localhost:7000/api/v1/auth/protegida HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYyNmVhOWY0MzNiNDI2OTk0YjNkZWUiLCJpYXQiOjE3MTA2MzM2ODYsImV4cCI6MTcxMDYzNDU4Nn0.a6PhOddC6B3UmAE0skd1iuiNgTqdJNKA8_PqGrujr6o
+
+{
+
+}
+
+###
+POST http://localhost:7000/api/v1/auth/logout HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWYyNmVhOWY0MzNiNDI2OTk0YjNkZWUiLCJpYXQiOjE3MTA2MzM2ODYsImV4cCI6MTcxMDYzNDU4Nn0.a6PhOddC6B3UmAE0skd1iuiNgTqdJNKA8_PqGrujr6o
+
+{
+    
+}
+
+###
+POST http://localhost:7000/api/v1/auth/refresh-token HTTP/1.1
+Content-Type: application/json
+
+{
+    
+}
+
+###
+GET http://localhost:7000/api/v1/link HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWY3NjRkMzVkZGE2M2NjYTk5ODU1ZjAiLCJpYXQiOjE3MTA3MTUzMTUsImV4cCI6MTcxMDcxNjIxNX0.ZiYklwLHU9jwVq_NTKumBXsPIPUQ92KJhY7vFRBrsbA
+
+{
+    
+}
+
+###
+POST http://localhost:7000/api/v1/link HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWY3NjRkMzVkZGE2M2NjYTk5ODU1ZjAiLCJpYXQiOjE3MTE0OTI5NDEsImV4cCI6MTcxMTQ5Mzg0MX0.6BZZ4fT1oLlETWuRYI9ISQspIBliin7ODK52_cAYfpU
+
+{
+    "url": "http://www.eltiempo.com"
 }
